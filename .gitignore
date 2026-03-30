@@ -1,12 +1,11 @@
-# 1. Создай .gitignore в КОРНЕ проекта (не в datacenter/)
 rm datacenter/.gitignore
 cat > .gitignore << 'EOF'
-# Byte-compiled / optimized / DLL files
+
 __pycache__/
 *.py[cod]
 *$py.class
 
-# C extensions
+
 *.so
 
 # Distribution / packaging
@@ -69,11 +68,3 @@ staticfiles/
 .vscode/
 .idea/
 EOF
-
-# 2. Восстанови ВСЕ файлы обратно в индекс
-git reset HEAD -- .
-git add .
-
-# 3. Принудительно запушь чистую версию
-git commit -m "Fix .gitignore and restore project files"
-git push --force-with-lease
